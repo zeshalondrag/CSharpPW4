@@ -1,0 +1,14 @@
+C:\Users\yaney\source\repos\PracticalWork№4\PracticalWork№4\obj\Debug\net7.0\PracticalWork№4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yaney\source\repos\PracticalWork№4\PracticalWork№4\obj\Debug\net7.0\PracticalWork№4.AssemblyInfoInputs.cache
+C:\Users\yaney\source\repos\PracticalWork№4\PracticalWork№4\obj\Debug\net7.0\PracticalWork№4.AssemblyInfo.cs
+C:\Users\yaney\source\repos\PracticalWork№4\PracticalWork№4\obj\Debug\net7.0\PracticalWork№4.csproj.CoreCompileInputs.cache
+C:\Users\yaney\source\repos\PracticalWork№4\PracticalWork№4\bin\Debug\net7.0\PracticalWork№4.exe
+C:\Users\yaney\source\repos\PracticalWork№4\PracticalWork№4\bin\Debug\net7.0\PracticalWork№4.deps.json
+C:\Users\yaney\source\repos\PracticalWork№4\PracticalWork№4\bin\Debug\net7.0\PracticalWork№4.runtimeconfig.json
+C:\Users\yaney\source\repos\PracticalWork№4\PracticalWork№4\bin\Debug\net7.0\PracticalWork№4.dll
+C:\Users\yaney\source\repos\PracticalWork№4\PracticalWork№4\bin\Debug\net7.0\PracticalWork№4.pdb
+C:\Users\yaney\source\repos\PracticalWork№4\PracticalWork№4\obj\Debug\net7.0\PracticalWork№4.dll
+C:\Users\yaney\source\repos\PracticalWork№4\PracticalWork№4\obj\Debug\net7.0\refint\PracticalWork№4.dll
+C:\Users\yaney\source\repos\PracticalWork№4\PracticalWork№4\obj\Debug\net7.0\PracticalWork№4.pdb
+C:\Users\yaney\source\repos\PracticalWork№4\PracticalWork№4\obj\Debug\net7.0\PracticalWork№4.genruntimeconfig.cache
+C:\Users\yaney\source\repos\PracticalWork№4\PracticalWork№4\obj\Debug\net7.0\ref\PracticalWork№4.dll
