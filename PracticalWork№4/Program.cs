@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 class Note
 {
-    public string Title { get; set; }
-    public string Description { get; set; }
-    public DateTime Date { get; set; }
-    public DateTime CompletionDate { get; set; }
+    public string Title;
+    public string Description;
+    public DateTime Date;
+    public DateTime CompletionDate;
 
     public Note(string title, string description, DateTime date, DateTime completionDate)
     {
@@ -21,16 +21,11 @@ class Program
 {
     static List<Note> notes = new List<Note>();
     static Note selectedNote;
+
     static void Main(string[] args)
     {
-        notes.Add(new Note("Заметочка 1", "Описание 1", new DateTime(2023, 7, 5), new DateTime(2023, 7, 6)));
-        notes.Add(new Note("Заметочка 2", "Описание 2", new DateTime(2023, 12, 20), new DateTime(2023, 12, 21)));
-        notes.Add(new Note("Заметочка 3", "Описание 3", new DateTime(2023, 9, 17), new DateTime(2023, 9, 18)));
-        notes.Add(new Note("Заметочка 4", "Описание 4", new DateTime(2023, 10, 28), new DateTime(2023, 10, 29)));
-        notes.Add(new Note("Заметочка 5", "Описание 5", new DateTime(2023, 11, 9), new DateTime(2023, 11, 10)));
-
-        selectedNote = notes[0];
-
+        InitializeNotes();
+        SelectFirstNote();
         notedescription();
 
         bool running = true;
@@ -42,23 +37,17 @@ class Program
 
             if (keyInfo.Key == ConsoleKey.T)
             {
-                createnote();
+                CreateNote();
                 notedescription();
             }
             else if (keyInfo.Key == ConsoleKey.LeftArrow)
             {
-                int currentIndex = notes.IndexOf(selectedNote);
-                if (currentIndex > 0)
-                    selectedNote = notes[currentIndex - 1];
-
+                MoveToPreviousNote();
                 notedescription();
             }
             else if (keyInfo.Key == ConsoleKey.RightArrow)
             {
-                int currentIndex = notes.IndexOf(selectedNote);
-                if (currentIndex < notes.Count - 1)
-                    selectedNote = notes[currentIndex + 1];
-
+                MoveToNextNote();
                 notedescription();
             }
             else if (keyInfo.Key == ConsoleKey.Enter)
@@ -73,6 +62,23 @@ class Program
         } while (running);
     }
 
+    static void InitializeNotes()
+    {
+        notes.Add(new Note("Заметочка 1", "Описание 1", new DateTime(2023, 7, 5), new DateTime(2023, 7, 6)));
+        notes.Add(new Note("Заметочка 2", "Описание 2", new DateTime(2023, 12, 20), new DateTime(2023, 12, 21)));
+        notes.Add(new Note("Заметочка 3", "Описание 3", new DateTime(2023, 9, 17), new DateTime(2023, 9, 18)));
+        notes.Add(new Note("Заметочка 4", "Описание 4", new DateTime(2023, 10, 28), new DateTime(2023, 10, 29)));
+        notes.Add(new Note("Заметочка 5", "Описание 5", new DateTime(2023, 11, 9), new DateTime(2023, 11, 10)));
+    }
+
+    static void SelectFirstNote()
+    {
+        if (notes.Count > 0)
+        {
+            selectedNote = notes[0];
+        }
+    }
+
     static void notedescription()
     {
         Console.WriteLine("Дата: " + selectedNote.Date.ToString("dd.MM.yyyy |"));
@@ -81,7 +87,7 @@ class Program
         for (int i = 0; i < notes.Count; i++)
         {
             if (notes[i] == selectedNote)
-                Console.WriteLine("> " + notes[i].Title);
+                Console.WriteLine("-> " + notes[i].Title);
             else
                 Console.WriteLine(notes[i].Title);
         }
@@ -92,7 +98,7 @@ class Program
         Console.WriteLine("2 - Чтобы открыть заметку нажмите Enter |");
         Console.WriteLine("-----------------------------------------------");
         Console.WriteLine("3 - Нажми букву T чтобы создать новую заметку |");
-        Console.WriteLine("-----------------------------------------------");
+        Console.WriteLine("-----------------------------------------------");   
         Console.WriteLine("4 - Для того чтобы выйти нажмите ESC |");
         Console.WriteLine("--------------------------------------");
     }
@@ -115,19 +121,46 @@ class Program
         Console.Clear();
     }
 
-    static void createnote()
+    static void CreateNote()
     {
-        Console.Write("Введите топовое название заметки: ");
+        Console.Write("Введите заголовок заметки: ");
         string title = Console.ReadLine();
 
-        Console.Write("Введите наикрутейшее описание примечания: ");
+        Console.Write("Введите описание заметки: ");
         string description = Console.ReadLine();
 
-        DateTime date = DateTime.Now;
-        DateTime completionDate = date;
+        DateTime creationDate = DateTime.Now;
+        DateTime completionDate = creationDate;
 
-        Note newNote = new Note(title, description, date, completionDate);
+        Note newNote = new Note(title, description, creationDate, completionDate);
         notes.Add(newNote);
         selectedNote = newNote;
+    }
+    static void MoveToPreviousNote()
+    {
+        int currentIndex = notes.IndexOf(selectedNote);
+
+        if (currentIndex > 0)
+        {
+            selectedNote = notes[currentIndex - 1];
+        }
+        else
+        {
+            selectedNote = notes[notes.Count - 1];
+        }
+    }
+
+    static void MoveToNextNote()
+    {
+        int currentIndex = notes.IndexOf(selectedNote);
+
+        if (currentIndex < notes.Count - 1)
+        {
+            selectedNote = notes[currentIndex + 1];
+        }
+        else
+        {
+            selectedNote = notes[0];
+        }
     }
 }
